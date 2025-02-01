@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./Layouts/header') %>
+    <h2 style="text-align: center;">view comment</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th style="width: 10px">name</th>
+                <th>email</th>
+                <th>comment</th>
+                <th>image</th>
+                <th>status</th>
+            </tr>
+        </thead>
+        <% Viewcomment.map((v,i)=>{ %>
+        <tbody>
+            <tr>
+                <th>  <%= v.name %></th>
+                <th>  <%= v.email %></th>
+                <th>  <%= v.comment %></th>
+                <th> <img src="<%= v.image %>" height="200px" width="200px" style="margin-bottom: 30px;"/></th>
+                <th>
+                <% if(v.status){%>
+                    <a href="/activecomment/?postid=<%= v.id %>&status=true" class="btn btn-success">Active</a>
+                    <% } else { %>                                            
+                        <a class="btn btn-danger" href="/deactivecomment/?postid=<%= v.id %>&status=false">Deactive</a>
+                    <% } %>
+                </th>
+            </tr>
+           
+            <% })%>
+
+        </tbody>
+    </table>
+    
+       
+
+</body>
+</html>

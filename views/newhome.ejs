@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="/User-Css/style.css">
+        <link rel="stylesheet" href="/remix/remixicon.css">
+        <link rel="stylesheet" href="/Futura/stylesheet.css">
+    </head>
+    
+<body>
+    <header  style="background-color: aquamarine;">
+        <div class="container">
+
+            <div class="d-flex align-items justify-between">
+                <div>
+                    <img src="/Image/logo.png" alt="A" width="170">
+                </div>
+                <nav>
+                    <ul class="d-flex align-items">
+                        <li>
+                            <a href="#"><i class="ri-home-5-fill"></i>Home</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><i class="ri-search-line"></i>Search</a>
+                        </li>
+                       
+                        <li>
+                            <a href="#"><i class="ri-group-2-fill"></i>Login</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <a href="/" style="border:1px solid black; background-color: rgb(87, 28, 28); border-radius: 5px; padding: 4px 7px; color: antiquewhite;">Back</a>
+</div>
+    <div>
+        <img src="Image/logo.png" alt="" width="170">
+    </div>
+    <h2>
+        <h2>
+            <%= BlogData.blogtitle %>
+        </h2>
+        <p>
+            <%- BlogData.description %>
+        </p>
+    </h2>
+    <br> <br>
+
+    <input type="text" name="postid" value="<%= postid %>">
+    <form action="/addcomment" method="post" enctype="multipart/form-data" >
+        <table border="1">
+           
+            <tr>
+                <th>name</th>
+                <th>
+                    <input type="name" name="name" value="">
+                </th>
+            </tr>
+            <tr>
+                <th>email</th>
+                <th>
+                    <input type="email" name="email" value="">
+                </th>
+            </tr>
+            <tr>
+                <th>comment</th>
+                <th>
+                   <textarea name="comment" id=""></textarea>
+                </th>
+            </tr>
+            <tr>
+                <th> image</th>
+                <th>
+                    <input type="file" name="image">
+                </th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>
+                    <input type="submit" name="submit">
+                </th>
+            </tr>
+        </table>
+       
+
+    </form>
+
+    
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th style="width: 10px">name</th>
+                <th>email</th>
+                <th>comment</th>
+                <th>image</th>
+              
+            </tr>
+        </thead>
+        <% Viewcomment.map((v,i)=>{ %>
+        <tbody>
+            <tr>
+                <th>  <%= v.name %></th>
+                <th>  <%= v.email %></th>
+                <th>  <%= v.comment %></th>
+                <th> <img src="<%= v.image %>" height="200px" width="200px" style="margin-bottom: 30px;"/></th>
+                
+                <th><a href="/userlike/<%= v.id %>">like (0)</a> || <a href="/userdislike/<%= v.id %>">dislike (0)</a></th>
+                
+            </tr>
+           
+            <% })%>
+
+        </tbody>
+    </table>
+</body>
+</html>
+

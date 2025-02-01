@@ -1,0 +1,29 @@
+
+<h1>User Ragister</h1>
+
+<%- include('Userheader') %>
+
+<form method="post" action="/UserRagisterdata">
+    <table border="1" align="center">
+        <tr>
+            <td>enter name</td>
+            <td><input type="text" name="username"></td>
+        </tr>
+        <tr>
+            <td> email</td>
+            <td><input type="text" name="useremail"></td>
+        </tr>
+        <tr>
+            <td> password</td>
+            <td><input type="text" name="userpassword"></td>
+        </tr>
+        <tr>
+            <td>ConfirmPassword</td>
+            <td><input type="text" name="cpassword"></td>
+        </tr>
+        <tr>
+            <td> </td>
+            <td><input type="submit" value="Register" ></td>
+        </tr>
+    </table>
+</form>

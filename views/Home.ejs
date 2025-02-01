@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="User-Css/style.css">
+    <link rel="stylesheet" href="remix/remixicon.css">
+    <link rel="stylesheet" href="Futura/stylesheet.css">
+</head>
+
+<body>
+    <header style="background-color: aquamarine;">
+        <div class="container">
+
+            <div class="d-flex align-items justify-between">
+                <div>
+                    <img src="Image/logo.png" alt="" width="170">
+                </div>
+                <nav>
+                    <ul class="d-flex align-items">
+                        <li>
+                            <a href="#"><i class="ri-home-5-fill"></i>Home</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><i class="ri-search-line"></i>Search</a>
+                        </li>
+                       
+                        <li>
+                            <a href="UserLogin"><i class="ri-group-2-fill"></i>Login</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <form action="home" method="post">
+        <input type="text" name="homesearch" value="<%= search %>">
+        <input type="submit" value="search">
+      </form>
+      <a href="/"><button>reset</button></a>
+    <div class="container d-flex">
+        <div class="">
+            <aside>
+                <a href="/">all (<%= BlogData.length %>) </a>
+                <% CategoryData.map((v,i)=>{ %>
+                    <h1>
+                        <a href="/?catid=<%= v.id %>">
+                            <%= v.category %> (<%= v.blogid.length %>)
+                    </a>
+                    </h1>
+                    <% }) %>
+            </aside>
+        </div>
+        <section class="Blogs">
+            <div class="container">
+                <span>Gujarati News / Mahakumbh / Wearing A Garland Of Human Bones, They Took A Dip In The Sangam.</span>
+                <% BlogData.map((v,i)=>{ %>
+                    <div class="blog-post">
+                        <h2>
+                            <%= v.blogtitle %>
+                        </h2>
+                        <p>
+                            <%- v.description %>
+                        </p>
+                        <br><br>
+                        <a href="/readmore/<%= v.id %>" style="border:1px solid black; background-color: rgb(226, 43, 43); border-radius: 5px; padding: 4px 7px;">read more</a>
+                    </div>
+                    <% }) %>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

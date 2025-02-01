@@ -1,0 +1,63 @@
+<%- include('./Layouts/header') %>
+    <main class="app-main">
+        <div class="app-content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0"></h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h3 class="card-title">View Category</h3>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Blog</th>
+                                             <th>Description</th>
+                                             <th>Category</th>
+                                             <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% ViewBlog.map((v,i)=>{ %>
+                                                <tr>
+                                                    <td><%= ++i %></td>
+                                                    <td><%= v.blogtitle %></td>
+                                                    <td><%- v.description %></td>
+                                                    <td><%= v.categoryId.category%></td>
+                                                    <td><%= v.status %></td>
+                                                    <td class="d-flex justify-content-around">
+                                                        <a href="/Blog/deleteBlogData/<%= v.id %>" class="btn btn-danger btn-sm animate__animated animate__fadeIn animate__delay-2s">
+                                                            <i class="bi bi-trash3"></i> Delete
+                                                        </a>
+                                                        <a href="/Blog/UpdateBlog/<%= v.id %>" class="btn btn-primary btn-sm animate__animated animate__fadeIn animate__delay-2s">
+                                                            <i class="bi bi-pencil-square"></i> Edit
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+    </main>
+
+    <%- include('./Layouts/footer') %>
