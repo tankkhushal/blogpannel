@@ -7,7 +7,7 @@ add-admin page
 
 
 
-view admin page
+view admin pagG
 
 ![b3](https://github.com/user-attachments/assets/e9f0051a-e7b7-41e8-8591-cbd7863501a0)
 
