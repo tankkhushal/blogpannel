@@ -41,7 +41,7 @@
                                                     <td><%= ++i %></td>
                                                     <td><%= v.blogtitle %></td>
                                                     <td><%- v.description %></td>
-                                                    <td><%= v.categoryId.category%></td>
+                                                    <td><%= v.categoryId ? v.categoryId.category : 'No Category' %></td>
                                                     <td><%= v.status %></td>
                                                     <td class="d-flex justify-content-around">
                                                         <a href="/Blog/deleteBlogData/<%= v.id %>" class="btn btn-danger btn-sm animate__animated animate__fadeIn animate__delay-2s">
